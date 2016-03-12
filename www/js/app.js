@@ -49,7 +49,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
       url: '/browse',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/browse.html',
+          controller: 'ProfileCtrl'
         }
       }
     })

@@ -1,3 +1,6 @@
+"use strict";
+
+
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -90,6 +93,14 @@ angular.module('starter.controllers', [])
     $scope.$parent.clearFabs();
     $timeout(function() {
         $scope.$parent.hideHeader();
+    }, 0);
+    ionicMaterialInk.displayEffect();
+})
+
+.controller('ProfileCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk) {
+    $scope.$parent.clearFabs();
+    $timeout(function() {
+        $scope.$parent.showHeader();
     }, 0);
     ionicMaterialInk.displayEffect();
 })

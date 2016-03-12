@@ -1,7 +1,7 @@
 /* General
 ==================================*/
 
-background-color: grey;
+
 
 h1 {
     color: #fff;
@@ -79,4 +79,15 @@ p {
 .social-login {
     position: fixed;
     bottom: 0;
+}
+
+/* Input style
+================================*/
+
+.item-md-label input{
+    background-color: rgba(48, 105, 208, 0.6);
+}
+
+.item-md-label input.used~.input-label, .item-md-label input:focus~.input-label{
+    opacity: 1;
 }

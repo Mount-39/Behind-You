@@ -1,7 +1,7 @@
 "use strict";
 
 
-angular.module('starter.controllers', [])
+angular.module('starter.app', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
@@ -10,12 +10,6 @@ angular.module('starter.controllers', [])
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
   };
 
 
@@ -89,18 +83,4 @@ angular.module('starter.controllers', [])
       };
 })
 
-.controller('LoginCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk) {
-    $scope.$parent.clearFabs();
-    $timeout(function() {
-        $scope.$parent.hideHeader();
-    }, 0);
-    ionicMaterialInk.displayEffect();
-})
 
-.controller('ProfileCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk) {
-    $scope.$parent.clearFabs();
-    $timeout(function() {
-        $scope.$parent.showHeader();
-    }, 0);
-    ionicMaterialInk.displayEffect();
-})

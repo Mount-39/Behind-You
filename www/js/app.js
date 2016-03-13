@@ -3,8 +3,12 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'ionMdInput'])
+// 'starter.controllers' is found in AppCtrl.js
+angular.module('starter', [
+  'ionic', 'starter.app',
+  'ionic-material', 'ionMdInput',
+  'Profile', 'Login'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,7 +26,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+      // Turn off caching for demo simplicity's sake
+      $ionicConfigProvider.views.maxCache(0);
+
   $stateProvider
 
     .state('app', {
@@ -54,25 +62,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.profile', {
+      url: '/profile',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'modules/Profile/profile.html',
+          controller: 'ProfileCtrl'
         }
       }
-    })
+    });
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
 });

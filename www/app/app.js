@@ -8,7 +8,8 @@ angular.module('app', [
     'ionic', 'backand',
     'ionic-material', 'ionMdInput',
     'restangular', 'ngCookies',
-    'sideMenu', 'Profile', 'Login'
+    'sideMenu', 'Profile', 'Login',
+    'Friends'
 ])
 
     .run(function ($ionicPlatform) {

@@ -350,6 +350,11 @@ span:nth-child(2) .gate:active {
   transform: rotate(10deg);
 }
 
+.reg{
+    font-size: 18px;
+
+}
+
 /* General
 ==================================*/
 

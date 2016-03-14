@@ -17,10 +17,6 @@
         <form name="loginForm" ng-submit="login.signin()">
             <div class="list slide-up">
                 <span ng-show="login.step == 1">
-                    <!--<ion-md-input placeholder="Email"
-                                  highlight-color="balanced"
-                                  type="email" ng-model="login.email">
-                    </ion-md-input>-->
                     <div class="row center animate-fade-slide-in">
                         <span>
                         <input name="emailInput" class="gate" id="email" type="email" placeholder="Your!" ng-model="login.email"
@@ -32,6 +28,7 @@
                             <i class="icon ion-arrow-right-a"></i>
                         </button>
                     </div>
+
                 </span>
 
                 <span ng-show="login.step == 2">
@@ -65,7 +62,7 @@
         <div class="button-bar social-login" ng-show="login.step == 1">
             <button class="button button-small button-border icon-left ion-social-google button-assertive-900">Google+
             </button>
-            <button class="button button-small button-border icon-left ion-social-twitter button-calm-900">Twitter
+            <button class="button button-small button-border icon-left button-calm-900">Vk
             </button>
             <button class="button button-small button-border icon-left ion-social-facebook button-positive-900">
                 Facebook

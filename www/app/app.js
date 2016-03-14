@@ -56,7 +56,7 @@ angular.module('app', [
                         controllerAs: 'login'
                     },
                     'fabContent': {
-                        template: ''
+                        template: '<button class="button button-fab button-fab-top-left button-royal"><i class="icon ion-ios-personadd"></i></button>'
                     }
                 },
                 onEnter: function ($ionicSideMenuDelegate) {

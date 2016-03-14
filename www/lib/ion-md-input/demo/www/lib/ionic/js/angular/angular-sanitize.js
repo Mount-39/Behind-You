@@ -26,7 +26,7 @@ var $sanitizeMinErr = angular.$$minErr('$sanitize');
  * HTML Parser By Misko Hevery (misko@hevery.com)
  * based on:  HTML Parser By John Resig (ejohn.org)
  * Original code by Erik Arvidsson, Mozilla Public License
- * http://erik.eae.net/simplehtmlparser/simplehtmlparser.js
+ * http://erik.eae.net/simplehtmlparser/simplehtmlparser.app
  *
  * // Use like so:
  * htmlParser(htmlString, {
@@ -57,7 +57,7 @@ var $sanitizeMinErr = angular.$$minErr('$sanitize');
  * @returns {string} Sanitized HTML.
  *
  * @example
-   <example module="sanitizeExample" deps="angular-sanitize.js">
+   <example module="sanitizeExample" deps="angular-sanitize.app">
    <file name="index.html">
      <script>
          angular.module('sanitizeExample', ['ngSanitize'])
@@ -104,7 +104,7 @@ var $sanitizeMinErr = angular.$$minErr('$sanitize');
        </table>
        </div>
    </file>
-   <file name="protractor.js" type="protractor">
+   <file name="protractor.app" type="protractor">
      it('should sanitize the html snippet by default', function() {
        expect(element(by.css('#bind-html-with-sanitize div')).getInnerHtml()).
          toBe('<p>an html\n<em>click here</em>\nsnippet</p>');
@@ -545,7 +545,7 @@ angular.module('ngSanitize', []).provider('$sanitize', $SanitizeProvider);
    <span ng-bind-html="linky_expression | linky"></span>
  *
  * @example
-   <example module="linkyExample" deps="angular-sanitize.js">
+   <example module="linkyExample" deps="angular-sanitize.app">
      <file name="index.html">
        <script>
          angular.module('linkyExample', ['ngSanitize'])
@@ -592,7 +592,7 @@ angular.module('ngSanitize', []).provider('$sanitize', $SanitizeProvider);
          </tr>
        </table>
      </file>
-     <file name="protractor.js" type="protractor">
+     <file name="protractor.app" type="protractor">
        it('should linkify the snippet with urls', function() {
          expect(element(by.id('linky-filter')).element(by.binding('snippet | linky')).getText()).
              toBe('Pretty text with some links: http://angularjs.org/, us@somewhere.org, ' +

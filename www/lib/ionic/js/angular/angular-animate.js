@@ -362,7 +362,7 @@ var $$AnimateChildrenDirective = [function() {
  *
  * Now we create the **JavaScript animation** that will trigger the CSS transition:
  *
- * ```js
+ * ```app
  * ngModule.animation('.fold-animation', ['$animateCss', function($animateCss) {
  *   return {
  *     enter: function(element, doneFn) {
@@ -389,7 +389,7 @@ var $$AnimateChildrenDirective = [function() {
  *
  * The example below showcases a more advanced version of the `.fold-animation` from the example above:
  *
- * ```js
+ * ```app
  * ngModule.animation('.fold-animation', ['$animateCss', function($animateCss) {
  *   return {
  *     enter: function(element, doneFn) {
@@ -439,7 +439,7 @@ var $$AnimateChildrenDirective = [function() {
  * works with the options provided. Say for example we were adding a class that contained a keyframe value and we wanted to also animate some inline
  * styles using the `from` and `to` properties.
  *
- * ```js
+ * ```app
  * var animator = $animateCss(element, {
  *   from: { background:'red' },
  *   to: { background:'blue' }
@@ -476,13 +476,13 @@ var $$AnimateChildrenDirective = [function() {
  * start the animation. All that is going on here is that the element is being prepared for the animation (which means that the generated CSS classes are
  * added and removed on the element). Once `$animateCss` is called it will return an object with the following properties:
  *
- * ```js
+ * ```app
  * var animator = $animateCss(element, { ... });
  * ```
  *
  * Now what do the contents of our `animator` variable look like:
  *
- * ```js
+ * ```app
  * {
  *   // starts the animation
  *   start: Function,
@@ -3166,7 +3166,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  *
  * The following code will issue the **ng-leave-stagger** event on the element provided:
  *
- * ```js
+ * ```app
  * var kids = parent.children();
  *
  * $animate.leave(kids[0]); //stagger index=0
@@ -3231,7 +3231,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  *
  * See the **slide** CSS class? Let's use that class to define an animation that we'll structure in our module code by using `module.animation`:
  *
- * ```js
+ * ```app
  * myModule.animation('.slide', [function() {
  *   return {
  *     // make note that other events (like addClass/removeClass)
@@ -3255,7 +3255,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  * ```
  *
  * The nice thing about JS-based animations is that we can inject other services and make use of advanced animation libraries such as
- * greensock.js and velocity.js.
+ * greensock.app and velocity.app.
  *
  * If our animation code class-based (meaning that something like `ngClass`, `ngHide` and `ngShow` triggers it) then we can still define
  * our animations inside of the same registered animation, however, the function input arguments are a bit different:
@@ -3269,7 +3269,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  * <button ng-click="color='green'">Change to green</button>
  * ```
  *
- * ```js
+ * ```app
  * myModule.animation('.colorful', [function() {
  *   return {
  *     addClass: function(element, className, doneFn) {
@@ -3297,7 +3297,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  * </div>
  * ```
  *
- * ```js
+ * ```app
  * myModule.animation('.slide', [function() {
  *   return {
  *     enter: function(element, doneFn) {
@@ -3321,7 +3321,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  * lack of CSS animations by using the `$animateCss` service to trigger our own tweaked-out, CSS-based animations directly from
  * our own JS-based animation code:
  *
- * ```js
+ * ```app
  * myModule.animation('.slide', ['$animateCss', function($animateCss) {
  *   return {
  *     enter: function(element, doneFn) {
@@ -3342,7 +3342,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  * keyframe animation. For example if we wanted to animate the height of an element while adding and removing classes then we can do so by providing that
  * data into `$animateCss` directly:
  *
- * ```js
+ * ```app
  * myModule.animation('.slide', ['$animateCss', function($animateCss) {
  *   return {
  *     enter: function(element, doneFn) {
@@ -3478,7 +3478,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
   <example module="anchoringExample"
            name="anchoringExample"
            id="anchoringExample"
-           deps="angular-animate.js;angular-route.js"
+           deps="angular-animate.app;angular-route.app"
            animations="true">
     <file name="index.html">
       <a href="#/">Home</a>
@@ -3487,7 +3487,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
         <div ng-view class="view"></div>
       </div>
     </file>
-    <file name="script.js">
+    <file name="script.app">
       angular.module('anchoringExample', ['ngAnimate', 'ngRoute'])
         .config(['$routeProvider', function($routeProvider) {
           $routeProvider.when('/', {
@@ -3612,7 +3612,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  * <greeting-box active="onOrOff">Hi there</greeting-box>
  * ```
  *
- * ```js
+ * ```app
  * ngModule.directive('greetingBox', ['$animate', function($animate) {
  *   return function(scope, element, attrs) {
  *     attrs.$observe('active', function(value) {
@@ -3652,7 +3652,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  *
  * You then configure `$animate` to enforce this prefix:
  *
- * ```js
+ * ```app
  * $animateProvider.classNameFilter(/animate-/);
  * ```
  *
@@ -3665,7 +3665,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  * an animation (within our directive code) then we can continue performing directive and scope related activities after the animation has
  * ended by chaining onto the returned promise that animation method returns.
  *
- * ```js
+ * ```app
  * // somewhere within the depths of the directive
  * $animate.enter(element, parent).then(function() {
  *   //the animation has completed
@@ -3679,7 +3679,7 @@ var $$AnimationProvider = ['$animateProvider', function($animateProvider) {
  * an event listener using the `$animate` service. Let's say for example that an animation was triggered on our view
  * routing controller to hook into that:
  *
- * ```js
+ * ```app
  * ngModule.controller('HomePageController', ['$animate', function($animate) {
  *   $animate.on('enter', ngViewElement, function(element) {
  *     // the animation for this route has completed

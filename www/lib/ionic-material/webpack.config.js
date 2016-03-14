@@ -6,7 +6,7 @@ var bowerComponentsPath = path.join(__dirname, '/bower_components');
 
 module.exports = {
     context: __dirname,
-    entry: './src/js/ionic-material.js',
+    entry: './src/app/ionic-material.js',
     output: {
         libraryTarget: 'umd',
         library: 'ionicMaterial',

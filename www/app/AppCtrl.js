@@ -1,7 +1,7 @@
 "use strict";
 
 
-angular.module('starter.app', [])
+angular.module('sideMenu', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
@@ -16,6 +16,7 @@ angular.module('starter.app', [])
    ////////////////////////////////////////
     // Layout Methods
     ////////////////////////////////////////
+
 
     $scope.hideNavBar = function() {
         document.getElementsByTagName('ion-nav-bar')[0].style.display = 'none';

@@ -244,7 +244,7 @@
  *
  * You then configure `$animate` to enforce this prefix:
  *
- * ```js
+ * ```app
  * $animateProvider.classNameFilter(/animate-/);
  * ```
  * </div>
@@ -286,7 +286,7 @@
  *
  * The following code will issue the **ng-leave-stagger** event on the element provided:
  *
- * ```js
+ * ```app
  * var kids = parent.children();
  *
  * $animate.leave(kids[0]); //stagger index=0
@@ -308,7 +308,7 @@
  * In the event that you do not want to use CSS3 transitions or CSS3 animations or if you wish to offer animations on browsers that do not
  * yet support CSS transitions/animations, then you can make use of JavaScript animations defined inside of your AngularJS module.
  *
- * ```js
+ * ```app
  * //!annotate="YourApp" Your AngularJS Module|Replace this or ngModule with the module that you used to define your application.
  * var ngModule = angular.module('YourApp', ['ngAnimate']);
  * ngModule.animation('.my-crazy-animation', function() {
@@ -358,7 +358,7 @@
  * (via the event parameter) we can set the `top` and `left` styles into an object and pass that into our function
  * call to `$animate.addClass`.
  *
- * ```js
+ * ```app
  * canvas.on('click', function(e) {
  *   $animate.addClass(element, 'on', {
  *     to: {
@@ -374,7 +374,7 @@
  * to provide some starting animation values then we can do so by placing the starting animations styles into an object
  * called `from` in the same object as the `to` animations.
  *
- * ```js
+ * ```app
  * canvas.on('click', function(e) {
  *   $animate.addClass(element, 'on', {
  *     from: {
@@ -817,7 +817,7 @@ angular.module('ngAnimate', ['ng'])
        * skipped due to animations being disabled. (Note that even if the animation is cancelled it will still
        * call the resolve function of the animation.)
        *
-       * ```js
+       * ```app
        * $animate.enter(element, container).then(function() {
        *   //...this is called once the animation is complete...
        * });
@@ -827,7 +827,7 @@ angular.module('ngAnimate', ['ng'])
        * location of the page, etc...) is executed within the callback promise then be sure to wrap the code using
        * `$scope.$apply(...)`;
        *
-       * ```js
+       * ```app
        * $animate.leave(element).then(function() {
        *   $scope.$apply(function() {
        *     $location.path('/new-page');
@@ -838,7 +838,7 @@ angular.module('ngAnimate', ['ng'])
        * An animation can also be cancelled by calling the `$animate.cancel(promise)` method with the provided
        * promise that was returned when the animation was started.
        *
-       * ```js
+       * ```app
        * var promise = $animate.addClass(element, 'super-long-animation').then(function() {
        *   //this will still be called even if cancelled
        * });
@@ -866,7 +866,7 @@ angular.module('ngAnimate', ['ng'])
          * provided `from` and `to` styles will be applied alongside the given transition. If a JavaScript animation is
          * detected then the provided styles will be given in as function paramters.
          *
-         * ```js
+         * ```app
          * ngModule.animation('.my-inline-animation', function() {
          *   return {
          *     animate : function(element, className, from, to, done) {

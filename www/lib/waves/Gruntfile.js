@@ -40,7 +40,7 @@ module.exports = function(grunt) {
             
             files: [
                 'gruntfile.js', 
-                'src/js/*.js',
+                'src/app/*.js',
             ],
             
             options: {
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: {
-                    'dist/waves.min.js': ['src/js/waves.js']
+                    'dist/waves.min.js': ['src/app/waves.js']
                 }
             }
         },
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
         copy: {
 			js: {
                 expand: true,
-                cwd: 'src/js',
+                cwd: 'src/app',
 				src: 'waves.js',
 				dest: 'dist/'
 			},

@@ -37,8 +37,8 @@ module.exports = function (angularApp) {
 
 
                     /**
-                     * mout.js 0.11.0 bind and slice polyfills (substitutes?)
-                     * TODO: pull out mout.js bind and slice molyfills and inject into material.ink
+                     * mout.app 0.11.0 bind and slice polyfills (substitutes?)
+                     * TODO: pull out mout.app bind and slice molyfills and inject into material.ink
                      */
 
                     /**

@@ -1,72 +1,110 @@
 /* General
 ==================================*/
 
-.transition, form button, form .question label, form .question input[type="text"] {
-    -webkit-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
-    transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+.row {
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
-form .question {
-    margin-top: 30px;
-    position: relative;
-    padding: 10px 0;
+.row span {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin: 30px 10px;
 }
-form .question:first-of-type {
-    padding-top: 0;
+
+.gate {
+  display: inline-block;
+  width: 215px;
+  padding: 10px 0 10px 15px;
+  font-weight: 400;
+  color: #377D6A;
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  text-indent: 65px;
+  transition: all .3s ease-in-out;
 }
-form .question:last-of-type {
-    padding-bottom: 0;
+
+.gate textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"]{
+  height: 42px;
+  padding: 15px;
 }
-form .question label {
-    transform-origin: left center;
-    color: #ff4a56;
-    font-weight: 100;
-    letter-spacing: 0.01em;
-    font-size: 25px;
-    box-sizing: border-box;
-    padding: 10px 15px;
-    display: block;
-    position: absolute;
-    margin-top: -40px;
-    z-index: 2;
-    pointer-events: none;
+
+.gate::-webkit-input-placeholder {
+  color: #efefef;
+  text-indent: 0;
+  font-weight: 300;
 }
-form .question input[type="text"] {
-    appearance: none;
-    background-color: transparent;
-    border: 1px solid #ff4a56;
-    line-height: 0;
-    font-size: 17px;
-    width: 100%;
-    display: block;
-    box-sizing: border-box;
-    padding: 10px 15px;
-    border-radius: 60px;
-    color: #ff4a56;
-    font-weight: 100;
-    letter-spacing: 0.01em;
-    position: relative;
-    z-index: 1;
+.gate + label {
+  height: 42px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 15px;
+  text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
+  background: #7AB893;
+  transition: all .4s ease-in-out;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  transform-origin: left bottom;
+  z-index: 99;
 }
-form .question input[type="text"]:focus {
-    outline: none;
-    background: #ff4a56;
-    color: rgb(110, 117, 120);
-    margin-top: 30px;
+.gate + label:before, .gate + label:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 3px;
+  background: #377D6A;
+  transform-origin: left bottom;
+  transition: all .4s ease-in-out;
+  pointer-events: none;
+  z-index: -1;
 }
-form .question input[type="text"]:valid {
-    margin-top: 30px;
+.gate + label:before {
+  background: rgba(3, 36, 41, 0.2);
+  z-index: -2;
+  right: 20%;
 }
-form .question input[type="text"]:focus ~ label {
-    -webkit-transform: translate(0, -35px);
-    transform: translate(0, -35px);
+
+span:nth-child(2) .gate {
+  text-indent: 85px;
 }
-form .question input[type="text"]:valid ~ label {
-    text-transform: uppercase;
-    font-style: italic;
-    -webkit-transform: translate(5px, -35px) scale(0.6);
-    transform: translate(5px, -35px) scale(0.6);
+
+span:nth-child(2) .gate:focus,
+span:nth-child(2) .gate:active {
+  text-indent: 0;
 }
+
+.gate:focus,
+.gate:active {
+  color: #377D6A;
+  text-indent: 0;
+  background: #fff;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.gate:focus::-webkit-input-placeholder,
+.gate:active::-webkit-input-placeholder {
+  color: #aaa;
+}
+.gate:focus + label,
+.gate:active + label {
+  transform: rotate(-66deg);
+  border-radius: 3px;
+}
+.gate:focus + label:before,
+.gate:active + label:before {
+  transform: rotate(10deg);
+}
+
 
 h1 {
     color: #fff;
@@ -75,9 +113,39 @@ h1 {
 }
 
 .loginPic{
-    height: 350px;
+    height: 70%;
 }
 
+.center{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
 
 /* Utilities
 ==================================*/

@@ -11,7 +11,7 @@ angular.module('Login', [])
 
         login.step = 1;
 
-        $scope.$parent.clearFabs();
+       // $scope.$parent.clearFabs();
         login.signin = signin;
 
         $scope.pictureNumber = picture();

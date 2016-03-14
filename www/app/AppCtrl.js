@@ -82,6 +82,6 @@ angular.module('sideMenu', [])
               fabs[0].remove();
           }
       };
-})
+});
 
 

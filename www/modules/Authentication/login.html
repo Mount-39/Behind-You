@@ -21,11 +21,11 @@
                                   type="email" ng-model="login.email">
                     </ion-md-input>-->
                     <div class="question">
-                        <input type="text" required/>
-                        <label>First Name</label>
+                        <input type="text" ng-model="login.email"/>
+                        <label>Email</label>
                     </div>
                     <button type="button" ng-click="login.step = 2"
-                            class="button button-fab-bottom-right button-energized-900">
+                            class="button button-fab button-dark button-fab-bottom-right">
                         <i class="icon ion-arrow-right-b"></i>
                     </button>
                 </span>

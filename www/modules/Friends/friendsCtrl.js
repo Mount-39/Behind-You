@@ -2,7 +2,7 @@
 
 angular.module('Friends', [])
 
-    .controller('FriendsCtrl', function () {
+    .controller('FriendsCtrl', function ($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
         // Set Header
         $scope.$parent.showHeader();
         $scope.$parent.clearFabs();

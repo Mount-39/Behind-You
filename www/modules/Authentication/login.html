@@ -1,55 +1,70 @@
 <ion-view hide-nav-bar="true" view-title="Login" align-title="left">
-    <!--<ion-content style="background: url(img/pic-.jpg) center; background-size: cover;">-->
-    <ion-content style="background-color: rgb(110, 117, 120);">
-    <!--<ion-content style="background-color: rgb(22, 160, 133); background-size: covr;">-->
-        <!--<div class="hero no-header flat">-->
-            <!--<div class="content">-->
-                <!--<div class="app-icon"></div>-->
-                <!--<h1 class="shape">Behind you</h1>-->
-            <!--</div>-->
-        <!--</div> -->
-        <div class="hero loginPic flat" ng-style="{'background': 'url(img/pic-'+ pictureNumber +'.gif) center', 'background-size': 'cover'}">
-            <div class="content">
+    <ion-content ng-style="{ 'background-color': whichBg }">
 
+        <div class="hero loginPic flat"
+             ng-style="{'background': 'url(img/pic-'+ pictureNumber +'.gif) center', 'background-size': 'cover'}">
+            <div class="content animated fadeInRightBig">
+                <h1 ng-class="'shape-'+pictureNumber">Behind you</h1>
             </div>
         </div>
-        <form ng-submit="login.signin()">
-            <div class="list">
+        <form name="loginForm" ng-submit="login.signin()">
+            <div class="list slide-up"
+                 ng-class="{'animated slideInRight' : login.stepBefore < login.step,
+                 'animated slideInLeft' : login.stepBefore > login.step}">
+
                 <span ng-show="login.step == 1">
-                    <!--<ion-md-input placeholder="Email"
-                                  highlight-color="balanced"
-                                  type="email" ng-model="login.email">
-                    </ion-md-input>-->
-                    <div class="question">
-                        <input type="text" ng-model="login.email"/>
-                        <label>Email</label>
+                    <div class="row center">
+                        <span>
+                        <input name="emailInput" class="gate" id="email" type="email" placeholder="Your!"
+                               ng-model="login.email"
+                               required/>
+                        <label for="email">Email</label>
+                        </span>
+                        <button type="button" ng-disabled="loginForm.emailInput.$invalid" ng-click="nextStep()"
+                                class="button button-fab button-assertive">
+                            <i class="icon ion-arrow-right-a"></i>
+                        </button>
                     </div>
-                    <button type="button" ng-click="login.step = 2"
-                            class="button button-fab button-dark button-fab-bottom-right">
-                        <i class="icon ion-arrow-right-b"></i>
-                    </button>
+
                 </span>
+
                 <span ng-show="login.step == 2">
-                <ion-md-input placeholder="Password" highlight-color="energized" type="password"
-                              ng-model="login.password"></ion-md-input>
-                    <button type="button" ng-click="login.step = 3"
-                            class="button button-fab button-fab-bottom-right button-energized-900">
-                        <i class="icon ion-arrow-right-b"></i>
-                    </button>
+                  <div>
+                      <div class="row center">
+                        <span>
+                        <input name="passwordInput" class="gate" id="password" type="password" placeholder="Secret"
+                               ng-model="login.password"
+                               required/>
+                        <label for="email">Password</label>
+                        </span>
+                          <button type="button" ng-disabled="loginForm.passwordInput.$invalid" ng-click="nextStep()"
+                                  class="button button-fab button-assertive">
+                              <i class="icon ion-arrow-right-a"></i>
+                          </button>
+                      </div>
+                      <div class="row center">
+                          <button type="button" ng-click="backStep()"
+                                  class="button button-fab button-dark">
+                              <i class="icon ion-arrow-left-a"></i>
+                          </button>
+                      </div>
+                  </div>
                 </span>
             </div>
 
             <span ng-show="login.step == 3">
-                <div class="padding">
+                <div class="padding" ng-class="{'animated slideInRight' : login.step == 3}">
                     <button type="submit" class="button button-full button-assertive ink">Login</button>
                 </div>
             </span>
         </form>
 
-        <div class="button-bar social-login">
+        <div class="button-bar social-login"
+             ng-show="login.step == 1"
+             ng-class="{'animated fadeInUp' : login.step == 1}">
             <button class="button button-small button-border icon-left ion-social-google button-assertive-900">Google+
             </button>
-            <button class="button button-small button-border icon-left ion-social-twitter button-calm-900">Twitter
+            <button class="button button-small button-border icon-left button-calm-900">Vk
             </button>
             <button class="button button-small button-border icon-left ion-social-facebook button-positive-900">
                 Facebook

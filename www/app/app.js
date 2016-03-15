@@ -56,7 +56,7 @@ angular.module('app', [
                         controllerAs: 'login'
                     },
                     'fabContent': {
-                        template: ''
+                        template: '<button class="button button-fab button-fab-top-left button-royal"><i class="icon ion-ios-personadd"></i></button>'
                     }
                 },
                 onEnter: function ($ionicSideMenuDelegate) {
@@ -71,11 +71,29 @@ angular.module('app', [
                 url: '/browse',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/browse.html',
-                        controller: 'ProfileCtrl'
+                        templateUrl: 'templates/browse.html'
                     }
                 }
             })
+
+            .state('app.friends', {
+                url: '/friends',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'modules/Friends/friends.html',
+                        controller: 'FriendsCtrl'
+                    },
+                    'fabContent': {
+                        template: '<button id="fab-friends" class="button button-fab button-fab-top-left expanded button-energized-900 spin"><i class="icon ion-chatbubbles"></i></button>',
+                        controller: function ($timeout) {
+                            $timeout(function () {
+                                document.getElementById('fab-friends').classList.toggle('on');
+                            }, 900);
+                        }
+                    }
+                }
+            })
+
             .state('app.profile', {
                 url: '/profile',
                 views: {

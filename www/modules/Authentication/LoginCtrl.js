@@ -10,6 +10,7 @@ angular.module('Login', [])
         var login = this;
 
         login.step = 1;
+        login.stepBefore = 1;
 
        // $scope.$parent.clearFabs();
         login.signin = signin;
@@ -19,16 +20,18 @@ angular.module('Login', [])
 
         $scope.nextStep = function (){
             $timeout(function () {
-                return login.step++;
+                login.stepBefore = login.step;
+                login.step++;
             }, 500);
-
+            console.log(login.stepBefore, login.step);
         };
 
         $scope.backStep = function (){
             $timeout(function () {
+                login.stepBefore = login.step;
                 return login.step--;
             }, 500);
-
+            console.log(login.stepBefore, login.step);
         };
 
         $timeout(function() {
@@ -37,11 +40,7 @@ angular.module('Login', [])
             });
         }, 500);
 
-        $timeout(function() {
-            ionicMaterialMotion.fadeSlideInRight({
-                startVelocity: 3000
-            });
-        }, 700);
+
 
         $ionicSideMenuDelegate.canDragContent(false);
 

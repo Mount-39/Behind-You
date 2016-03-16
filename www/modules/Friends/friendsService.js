@@ -12,10 +12,11 @@
         var collection = [], friendsId = [];
 
         return {
-            getFriends: getFriends
+            getFriendsId: getFriendsId,
+            getFriendInfo: getFriendInfo
         };
 
-        function getFriends(userId) {
+        function getFriendsId(userId) {
 
             return $http ({
                 method: 'GET',
@@ -34,14 +35,14 @@
                 }
             }).then(function (friends) {
                friendsId = _.map(friends.data.data, "friendId");
+                //
+                //angular.forEach(friendsId, function(id){
+                //    getFriendInfo(id).then(function(result, error){
+                //        collection.push(result);
+                //    });
+                //});
 
-                angular.forEach(friendsId, function(id){
-                    getFriendInfo(id).then(function(result, error){
-                        collection.push(result);
-                    });
-                });
-
-                return collection;
+                return friendsId;
             });
 
           /*  userId.toString();

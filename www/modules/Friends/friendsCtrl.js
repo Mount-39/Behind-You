@@ -2,21 +2,9 @@
 
 angular.module('Friends', [])
 
-    .controller('FriendsCtrl', FriendsCtrl);
-
-        FriendsCtrl.$inject = [
-            '$scope', '$stateParams', '$timeout',
-            'ionicMaterialMotion', 'ionicMaterialInk',
-            'FriendsService', '$rootScope'
-        ];
-
-        function FriendsCtrl (
-        $scope, $stateParams, $timeout,
-        ionicMaterialMotion, ionicMaterialInk,
-        FriendsService, $rootScope
-    ) {
-
-            var vm = this;
+    .controller('FriendsCtrl', function ($scope, $stateParams, $timeout,
+                                         ionicMaterialMotion, ionicMaterialInk,
+                                         FriendsService, $rootScope) {
 
         // Set Header
         $scope.$parent.showHeader();
@@ -35,15 +23,31 @@ angular.module('Friends', [])
         // Set Ink
         ionicMaterialInk.displayEffect();
 
-        vm.friends = [];
 
-            uploadFriends();
+        $scope.friendsId = [];
+        $scope.friendsInfo = [];
 
-            function uploadFriends(){
-                return FriendsService.getFriends($rootScope.userId).then(function(data){
-                   vm.friends = data;
-                    console.log("hi", vm.friends);
-                    return vm.friends;
-                });
-            }
-    }
+        $scope.array = [1, 2, 3];
+
+
+        uploadFriends();
+
+
+        function uploadFriends() {
+            return FriendsService.getFriendsId($rootScope.userId)
+                .then(function (data) {
+                    $scope.friendsId = data;
+                    // return $scope.friendsId;
+                })
+                .then(getFriendsInfo)
+        }
+
+        function getFriendsInfo() {
+            angular.forEach($scope.friendsId, function (id) {
+                FriendsService.getFriendInfo(id).then(function (result, error) {
+                    $scope.friendsInfo.push(result);
+                })
+            });
+        }
+
+    });

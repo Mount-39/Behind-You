@@ -2,13 +2,17 @@
 
 angular.module('Profile', [])
 
-    .controller('ProfileCtrl', function ($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
+    .controller('ProfileCtrl', function ($scope, $stateParams, $timeout,
+                                         ionicMaterialMotion, ionicMaterialInk
+    ) {
         // Set Header
         $scope.$parent.showHeader();
         $scope.$parent.clearFabs();
         $scope.isExpanded = false;
         $scope.$parent.setExpanded(false);
         $scope.$parent.setHeaderFab(false);
+
+        $scope.array = [1,2,3];
 
         // Set Motion
         $timeout(function () {

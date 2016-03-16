@@ -2,7 +2,22 @@
 
 angular.module('Friends', [])
 
-    .controller('FriendsCtrl', function ($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
+    .controller('FriendsCtrl', FriendsCtrl);
+
+        FriendsCtrl.$inject = [
+            '$scope', '$stateParams', '$timeout',
+            'ionicMaterialMotion', 'ionicMaterialInk',
+            'FriendsService', '$rootScope'
+        ];
+
+        function FriendsCtrl (
+        $scope, $stateParams, $timeout,
+        ionicMaterialMotion, ionicMaterialInk,
+        FriendsService, $rootScope
+    ) {
+
+            var vm = this;
+
         // Set Header
         $scope.$parent.showHeader();
         $scope.$parent.clearFabs();
@@ -19,4 +34,16 @@ angular.module('Friends', [])
 
         // Set Ink
         ionicMaterialInk.displayEffect();
-    });
+
+        vm.friends = [];
+
+            uploadFriends();
+
+            function uploadFriends(){
+                return FriendsService.getFriends($rootScope.userId).then(function(data){
+                   vm.friends = data;
+                    console.log("hi", vm.friends);
+                    return vm.friends;
+                });
+            }
+    }

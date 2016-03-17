@@ -1,17 +1,11 @@
 <ion-view view-title="Friends">
     <ion-content ng-class="{expanded:isExpanded}">
         <div class="content has-header">
-            <div class="list animate-fade-slide-in-right">
-                <a href="#/app/profile" class="item item-avatar item-icon-right">
+            <div class="list">
+                <a href="#/app/profile" class="item item-avatar item-icon-right" collection-repeat="friend in friendsInfo">
                     <img src="img/user.jpg">
-                    <h2>Friend 1</h2>
-                    <p>Demons between us</p>
-                    <i class="icon ion-chatbubble muted"></i>
-                </a>
-                <a href="#/app/profile" class="item item-avatar item-icon-right" collection-repeat="item in array">
-                    <img src="img/user.jpg">
-                    <h2>Daenerys Targaryen</h2>
-                    <p>Dragon mommy</p>
+                    <h2>{{friend.firstName}} {{friend.lastName}}</h2>
+                    <p>Last seen 5 min ago</p>
                     <i class="icon ion-chatbubble muted"></i>
                 </a>
             </div>

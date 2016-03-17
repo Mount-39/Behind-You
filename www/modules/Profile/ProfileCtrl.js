@@ -23,9 +23,9 @@ angular.module('Profile', [])
 
         $timeout(function () {
             ionicMaterialMotion.fadeSlideInRight({
-                startVelocity: 3000
+                startVelocity: 4000
             });
-        }, 700);
+        }, 1000);
 
         // Set Ink
         ionicMaterialInk.displayEffect();

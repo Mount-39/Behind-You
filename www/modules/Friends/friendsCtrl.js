@@ -17,8 +17,6 @@ angular.module('Friends', [])
             $scope.$parent.setExpanded(true);
         }, 300);
 
-        // Set Motion
-        ionicMaterialMotion.fadeSlideInRight();
 
         // Set Ink
         ionicMaterialInk.displayEffect();
@@ -26,8 +24,6 @@ angular.module('Friends', [])
 
         $scope.friendsId = [];
         $scope.friendsInfo = [];
-
-        $scope.array = [1, 2, 3];
 
 
         uploadFriends();

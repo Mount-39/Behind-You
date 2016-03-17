@@ -9,7 +9,7 @@ angular.module('app', [
     'ionic-material', 'ionMdInput',
     'restangular', 'ngCookies',
     'sideMenu', 'Profile', 'Login',
-    'Friends'
+    'Friends', 'UserPage'
 ])
 
     .run(function ($ionicPlatform, $rootScope) {
@@ -80,6 +80,9 @@ angular.module('app', [
 
             .state('app.friends', {
                 url: '/friends',
+                params: {
+                    userInfo: null
+                },
                 views: {
                     'menuContent': {
                         templateUrl: 'modules/Friends/friends.html',
@@ -104,10 +107,28 @@ angular.module('app', [
                         controller: 'ProfileCtrl'
                     },
                     'fabContent': {
-                        template: '<button id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-plus"></i></button>',
+                        template: '<button id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-edit"></i></button>',
                         controller: function ($timeout) {
                             $timeout(function () {
                                 document.getElementById('fab-profile').classList.toggle('on');
+                            }, 800);
+                        }
+                    }
+                }
+            })
+
+            .state('app.userPage', {
+                url: '/userPage',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'modules/UserPage/userPage.html',
+                        controller: 'UserPageCtrl'
+                    },
+                    'fabContent': {
+                        template: '<button id="fab-userPage" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-chatbubble"></i></button>',
+                        controller: function ($timeout) {
+                            $timeout(function () {
+                                document.getElementById('fab-userPage').classList.toggle('on');
                             }, 800);
                         }
                     }

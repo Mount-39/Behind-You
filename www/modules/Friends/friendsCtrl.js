@@ -2,7 +2,7 @@
 
 angular.module('Friends', [])
 
-    .controller('FriendsCtrl', function ($scope, $stateParams, $timeout,
+    .controller('FriendsCtrl', function ($scope, $stateParams, $timeout, $state,
                                          ionicMaterialMotion, ionicMaterialInk,
                                          FriendsService, $rootScope) {
 
@@ -44,6 +44,10 @@ angular.module('Friends', [])
                     $scope.friendsInfo.push(result);
                 })
             });
+        }
+
+        function userInfo(index){
+            $state.go('userPage', {userInfo: friendsInfo[index]})
         }
 
     });

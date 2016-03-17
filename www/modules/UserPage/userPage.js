@@ -1,18 +1,18 @@
 'use strict';
 
-angular.module('Profile', [])
+angular.module('UserPage', [])
 
-    .controller('ProfileCtrl', function ($scope, $stateParams, $timeout,
-                                         ionicMaterialMotion, ionicMaterialInk
+    .controller('UserPageCtrl', function ($scope, $stateParams, $timeout,
+                                          ionicMaterialMotion, ionicMaterialInk
     ) {
-        // Set Header
+// Set Header
         $scope.$parent.showHeader();
         $scope.$parent.clearFabs();
         $scope.isExpanded = false;
         $scope.$parent.setExpanded(false);
         $scope.$parent.setHeaderFab(false);
 
-        // Set Motion
+// Set Motion
         $timeout(function () {
             ionicMaterialMotion.slideUp({
                 selector: '.slide-up'
@@ -25,6 +25,6 @@ angular.module('Profile', [])
             });
         }, 1000);
 
-        // Set Ink
+// Set Ink
         ionicMaterialInk.displayEffect();
     });

@@ -2,7 +2,7 @@
     <ion-content ng-class="{expanded:isExpanded}">
         <div class="content has-header">
             <div class="list">
-                <a href="#/app/profile" class="item item-avatar item-icon-right" collection-repeat="friend in friendsInfo">
+                <a ui-sref="app.userPage" class="item item-avatar item-icon-right" collection-repeat="friend in friendsInfo">
                     <img src="img/user.jpg">
                     <h2>{{friend.firstName}} {{friend.lastName}}</h2>
                     <p>Last seen 5 min ago</p>

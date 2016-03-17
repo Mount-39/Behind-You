@@ -24,6 +24,7 @@ angular.module('Friends', [])
 
         $scope.friendsId = [];
         $scope.friendsInfo = [];
+        $scope.userInfo = userInfo;
 
 
         uploadFriends();
@@ -47,7 +48,8 @@ angular.module('Friends', [])
         }
 
         function userInfo(index){
-            $state.go('userPage', {userInfo: friendsInfo[index]})
+            console.log($scope.friendsInfo[index]);
+            $state.go('app.userPage', {userInfo: $scope.friendsInfo[index]})
         }
 
     });

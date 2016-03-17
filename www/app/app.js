@@ -81,7 +81,7 @@ angular.module('app', [
             .state('app.friends', {
                 url: '/friends',
                 params: {
-                    userInfo: null
+                    user: null
                 },
                 views: {
                     'menuContent': {
@@ -119,6 +119,9 @@ angular.module('app', [
 
             .state('app.userPage', {
                 url: '/userPage',
+                params: {
+                    userInfo: null
+                },
                 views: {
                     'menuContent': {
                         templateUrl: 'modules/UserPage/userPage.html',

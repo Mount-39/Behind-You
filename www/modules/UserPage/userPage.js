@@ -5,7 +5,8 @@ angular.module('UserPage', [])
     .controller('UserPageCtrl', function ($scope, $stateParams, $timeout,
                                           ionicMaterialMotion, ionicMaterialInk
     ) {
-        console.log($stateParams.userInfo);
+
+        $scope.userInfo = $stateParams.userInfo;
 // Set Header
         $scope.$parent.showHeader();
         $scope.$parent.clearFabs();
@@ -29,3 +30,4 @@ angular.module('UserPage', [])
 // Set Ink
         ionicMaterialInk.displayEffect();
     });
+

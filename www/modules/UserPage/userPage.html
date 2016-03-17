@@ -3,7 +3,7 @@
         <div class="hero slide-up" style="background-image: url('img/login.jpg');">
             <div class="content">
                 <div class="avatar" style="background-image: url('img/user.jpg');"></div>
-                <h3><a class="light">User Name</a></h3>
+                <h3><a class="light">{{userInfo.firstName}} {{userInfo.lastName}}</a></h3>
                 <h4>some status</h4>
             </div>
         </div>
@@ -13,11 +13,19 @@
         <div class="list animate-fade-slide-in-right">
             <div class="item">
                 <p>Name</p>
-                <h2>Friend 1</h2>
+                <h2>{{userInfo.firstName}}</h2>
             </div>
             <div class="item">
                 <p>Surname</p>
-                <h2>Deamon</h2>
+                <h2>{{userInfo.lastName}}</h2>
+            </div>
+            <div class="item">
+                <p>Country</p>
+                <h2>Ukraine</h2>
+            </div>
+            <div class="item">
+                <p>City</p>
+                <h2>Kharkiv</h2>
             </div>
 
         </div>

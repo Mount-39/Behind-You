@@ -3,9 +3,9 @@
 angular.module('Login', [])
 
     .controller('LoginCtrl', function (
-        $scope, $timeout,$state, $stateParams,
+        $scope, $timeout, $state, $stateParams,
         ionicMaterialInk, $ionicSideMenuDelegate,
-        Backand, $cookies, ionicMaterialMotion
+        Backand, $cookies, ionicMaterialMotion, LoginService, $rootScope
     ) {
         var login = this;
 
@@ -14,6 +14,7 @@ angular.module('Login', [])
 
        // $scope.$parent.clearFabs();
         login.signin = signin;
+        login.error = $state.params.error;
 
         $scope.pictureNumber = picture();
         $scope.whichBg = whichBg();
@@ -23,15 +24,11 @@ angular.module('Login', [])
                 login.stepBefore = login.step;
                 login.step++;
             }, 500);
-            console.log(login.stepBefore, login.step);
         };
 
         $scope.backStep = function (){
-            $timeout(function () {
-                login.stepBefore = login.step;
-                return login.step--;
-            }, 500);
-            console.log(login.stepBefore, login.step);
+            login.stepBefore = login.step;
+            login.step--;
         };
 
         $timeout(function() {
@@ -52,14 +49,28 @@ angular.module('Login', [])
 
         function signin(user) {
 
-            console.log(login.email, login.password);
+/*            console.log(login.email, login.password);
 
             Backand.signin(login.email, login.password)
                 .then(function (response) {
                     console.log(response);
                     $cookies.put('access_token', response);
                     $state.go('app.profile');
-                });
+                });*/
+
+            LoginService.signin(login.email, login.password)
+                .then(function(data){
+                    $rootScope.currentUser = data;
+                    console.log($rootScope.currentUser);
+                    $state.go('app.profile');
+                }, showError
+            )
+
+        }
+
+        function showError(error) {
+            console.log(error);
+            login.error = error && error.data || error.error_description || 'Unknown error from server';
         }
 
         function picture(){

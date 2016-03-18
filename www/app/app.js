@@ -27,7 +27,10 @@ angular.module('app', [
             }
         });
 
-        $rootScope.userId = 5;
+        $rootScope.currentUser = {};
+
+        //DELETE BEFORE DEPLOY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        $rootScope.currentUser.userId = 5;
     })
 
 

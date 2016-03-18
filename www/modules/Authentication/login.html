@@ -53,9 +53,27 @@
             </div>
 
             <span ng-show="login.step == 3">
+                <div ng-show="login.error" class="alert alert-danger">{{login.error}}</div>
+
                 <div class="padding" ng-class="{'animated slideInRight' : login.step == 3}">
-                    <button type="submit" class="button button-full button-assertive ink">Login</button>
+                    <button type="submit" class="button button-full button-assertive ink"
+                            ng-class="{'button-small': login.error}"
+                            ng-disabled="login.error">
+                        Login
+                    </button>
                 </div>
+
+                <div class="row center" ng-show="login.error">
+                    <button type="button" ng-click="backStep(); login.error = ''"
+                            class="button button-fab button-dark">
+                        <i class="icon ion-arrow-left-a"></i>
+                    </button>
+                    <button type="button" ng-click=""
+                            class="button button-fab button-bar-assertive-900">
+                        <i class="icon ion-android-unlock"></i>
+                    </button>
+                </div>
+
             </span>
         </form>
 

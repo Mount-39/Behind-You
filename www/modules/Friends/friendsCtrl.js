@@ -31,7 +31,7 @@ angular.module('Friends', [])
 
 
         function uploadFriends() {
-            return FriendsService.getFriendsId($rootScope.userId)
+            return FriendsService.getFriendsId($rootScope.currentUser.userId)
                 .then(function (data) {
                     $scope.friendsId = data;
                     // return $scope.friendsId;

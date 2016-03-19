@@ -33,7 +33,7 @@
                       <div class="row center">
                         <span>
                         <input name="passwordInput" class="gate" id="password" type="password" placeholder="Secret"
-                               ng-model="login.password"
+                               ng-model="login.password" ng-minlength="6"
                                required/>
                         <label for="email">Password</label>
                         </span>
@@ -53,7 +53,7 @@
             </div>
 
             <span ng-show="login.step == 3">
-                <div ng-show="login.error" class="alert alert-danger">{{login.error}}</div>
+                <div ng-show="login.error" class="row center animated bounceIn" style="color: #FFFFFF">{{login.error}}</div>
 
                 <div class="padding" ng-class="{'animated slideInRight' : login.step == 3}">
                     <button type="submit" class="button button-full button-assertive ink"

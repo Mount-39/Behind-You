@@ -61,7 +61,27 @@ angular.module('app', [
                         controllerAs: 'login'
                     },
                     'fabContent': {
-                        template: '<button class="button button-fab button-fab-top-left button-royal"><i class="icon ion-ios-personadd"></i></button>'
+                        template: '<button class="button button-fab button-fab-top-left button-royal" ui-sref="app.register"><i class="icon ion-ios-personadd"></i></button>'
+                    }
+                },
+                onEnter: function ($ionicSideMenuDelegate) {
+                    $ionicSideMenuDelegate.canDragContent(false)
+                },
+                onExit: function ($ionicSideMenuDelegate) {
+                    $ionicSideMenuDelegate.canDragContent(true)
+                }
+            })
+
+            .state('app.register', {
+                url: '/register',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'modules/Authentication/register.html',
+                        controller: 'RegisterCtrl',
+                        controllerAs: 'reg'
+                    },
+                    'fabContent': {
+                        template: ''
                     }
                 },
                 onEnter: function ($ionicSideMenuDelegate) {

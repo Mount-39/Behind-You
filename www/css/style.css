@@ -240,6 +240,43 @@
     text-align: center;
 }
 
+.shape-register {
+    text-shadow: rgb(150, 150, 150) 1px 1px,
+    rgb(150, 150, 150) 2px 2px,
+    rgb(150, 150, 150) 3px 3px,
+    rgb(150, 150, 150) 4px 4px,
+    rgb(150, 150, 150) 5px 5px,
+    rgb(150, 150, 150) 6px 6px,
+    rgb(150, 150, 150) 7px 7px,
+    rgb(150, 150, 150) 8px 8px,
+    rgb(150, 150, 150) 9px 9px,
+    rgb(150, 150, 150) 10px 10px,
+    rgb(150, 150, 150) 11px 11px,
+    rgb(150, 150, 150) 12px 12px,
+    rgb(155, 155, 155) 13px 13px,
+    rgb(161, 161, 161) 14px 14px,
+    rgb(167, 167, 167) 15px 15px,
+    rgb(173, 173, 173) 16px 16px,
+    rgb(179, 179, 179) 17px 17px,
+    rgb(185, 185, 185) 18px 18px,
+    rgb(190, 190, 190) 19px 19px,
+    rgb(196, 196, 196) 20px 20px,
+    rgb(202, 202, 202) 21px 21px,
+    rgb(208, 208, 208) 22px 22px,
+    rgb(214, 214, 214) 23px 23px,
+    rgb(220, 220, 220) 24px 24px,
+    rgb(225, 225, 225) 25px 25px,
+    rgb(231, 231, 231) 26px 26px,
+    rgb(237, 237, 237) 27px 27px,
+    rgb(243, 243, 243) 28px 28px,
+    rgb(249, 249, 249) 29px 29px,
+    rgb(255, 255, 255) 30px 30px;
+    height: 100%;
+    width: 100%;
+    font-size: 65px;
+    text-align: center;
+}
+
 .row {
   margin: 0 auto;
   position: relative;
@@ -347,6 +384,14 @@ span:nth-child(2) .gate:active {
 .reg{
     font-size: 18px;
 
+}
+
+.has-errors {
+    border-bottom: 3px solid #B83E2C;
+}
+
+.no-errors {
+    border-bottom: 3px solid green;
 }
 
 /* General

@@ -19,11 +19,11 @@
                 <p>Surname</p>
                 <h2>{{userInfo.lastName}}</h2>
             </div>
-            <div class="item">
+            <div class="item" ng-if="userInfo.country">
                 <p>Country</p>
                 <h2>{{userInfo.country}}</h2>
             </div>
-            <div class="item">
+            <div class="item" ng-if="userInfo.city">
                 <p>City</p>
                 <h2>{{userInfo.city}}</h2>
             </div>

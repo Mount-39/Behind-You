@@ -148,14 +148,21 @@ angular.module('app', [
                 views: {
                     'menuContent': {
                         templateUrl: 'modules/UserPage/userPage.html',
-                        controller: 'UserPageCtrl'
+                        controller: 'UserPageCtrl',
+                        controllerAs: 'self'
                     },
                     'fabContent': {
-                        template: '<button id="fab-userPage" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-chatbubble"></i></button>',
-                        controller: function ($timeout) {
+                        template: '<button ng-show="showBnt" id="fab-userPage" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-chatbubble"></i></button>',
+                        controller: function ($scope,$timeout, $stateParams, $rootScope) {
+                            $scope.showBnt = true;
+
                             $timeout(function () {
                                 document.getElementById('fab-userPage').classList.toggle('on');
                             }, 800);
+
+                            if($stateParams.userInfo.id == $rootScope.currentUser.userId){
+                                $scope.showBnt = false;
+                            }
                         }
                     }
                 }

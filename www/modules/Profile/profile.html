@@ -2,10 +2,10 @@
     <ion-content ng-class="{expanded:$scope.isExpanded}">
         <div class="hero slide-up" style="background-image: url('img/login.jpg');">
             <div class="content">
-                <div class="avatar" style="background-image: url('img/user.jpg');"></div>
+                <div ui-sref="app.userPage({userInfo: userInfo})" class="avatar" style="background-image: url('img/user.jpg');"></div>
                 <h3><a class="light">{{userInfo.firstName}} {{userInfo.lastName}}</a></h3>
                 <h4 ng-click="statusPopup()"><u>{{userInfo.status}}</u></h4>
-                <h4 ng-if="!userInfo.status"><u>type here to set status</u></h4>
+                <h4 ng-click="statusPopup()" ng-if="!userInfo.status"><u>type here to set status</u></h4>
             </div>
         </div>
         <div class="tabs tabs-dark tabs-icon-top static">

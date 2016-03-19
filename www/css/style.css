@@ -383,15 +383,11 @@ span:nth-child(2) .gate:active {
 
 .reg{
     font-size: 18px;
-
 }
 
-.has-errors {
-    border-bottom: 3px solid #B83E2C;
-}
-
-.no-errors {
-    border-bottom: 3px solid green;
+.daleyBtns{
+    animation-delay: 1s;
+-webkit-animation-delay: 1s;
 }
 
 /* General

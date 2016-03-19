@@ -48,16 +48,6 @@ angular.module('Login', [])
         ionicMaterialInk.displayEffect();
 
         function signin(user) {
-
-/*            console.log(login.email, login.password);
-
-            Backand.signin(login.email, login.password)
-                .then(function (response) {
-                    console.log(response);
-                    $cookies.put('access_token', response);
-                    $state.go('app.profile');
-                });*/
-
             LoginService.signin(login.email, login.password)
                 .then(function(data){
                     $rootScope.currentUser = data;
